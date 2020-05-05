@@ -36,6 +36,7 @@ namespace ObjectDetection
         {
             var configurationDetector = new ConfigurationDetector();
             var config = configurationDetector.Detect();
+
             using (var yoloWrapper = new YoloWrapper(config))
             {
                 using(MemoryStream ms = new MemoryStream())
