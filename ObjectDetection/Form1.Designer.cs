@@ -31,26 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.btnOpen = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.pic = new System.Windows.Forms.PictureBox();
-            this.btnDetect = new System.Windows.Forms.Button();
-            this.yoloItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.confidenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.widthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.heightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yoloItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pic = new System.Windows.Forms.PictureBox();
+            this.btnDetect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yoloItemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(984, 521);
+            this.btnOpen.Location = new System.Drawing.Point(656, 339);
+            this.btnOpen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(157, 57);
+            this.btnOpen.Size = new System.Drawing.Size(105, 37);
             this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = "Open";
             this.btnOpen.UseVisualStyleBackColor = true;
@@ -69,39 +70,13 @@
             this.widthDataGridViewTextBoxColumn,
             this.heightDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.yoloItemBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 521);
+            this.dataGridView1.Location = new System.Drawing.Point(9, 339);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(965, 199);
+            this.dataGridView1.Size = new System.Drawing.Size(643, 129);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // pic
-            // 
-            this.pic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic.Location = new System.Drawing.Point(13, 13);
-            this.pic.Name = "pic";
-            this.pic.Size = new System.Drawing.Size(1127, 502);
-            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic.TabIndex = 2;
-            this.pic.TabStop = false;
-            // 
-            // btnDetect
-            // 
-            this.btnDetect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDetect.Location = new System.Drawing.Point(984, 584);
-            this.btnDetect.Name = "btnDetect";
-            this.btnDetect.Size = new System.Drawing.Size(157, 57);
-            this.btnDetect.TabIndex = 3;
-            this.btnDetect.Text = "Detect";
-            this.btnDetect.UseVisualStyleBackColor = true;
-            this.btnDetect.Click += new System.EventHandler(this.btnDetect_Click);
-            // 
-            // yoloItemBindingSource
-            // 
-            this.yoloItemBindingSource.DataSource = typeof(Alturos.Yolo.Model.YoloItem);
             // 
             // typeDataGridViewTextBoxColumn
             // 
@@ -151,20 +126,50 @@
             this.heightDataGridViewTextBoxColumn.Name = "heightDataGridViewTextBoxColumn";
             this.heightDataGridViewTextBoxColumn.Width = 150;
             // 
+            // yoloItemBindingSource
+            // 
+            this.yoloItemBindingSource.DataSource = typeof(Alturos.Yolo.Model.YoloItem);
+            // 
+            // pic
+            // 
+            this.pic.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic.Location = new System.Drawing.Point(9, 8);
+            this.pic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pic.Name = "pic";
+            this.pic.Size = new System.Drawing.Size(751, 326);
+            this.pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic.TabIndex = 2;
+            this.pic.TabStop = false;
+            // 
+            // btnDetect
+            // 
+            this.btnDetect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDetect.Location = new System.Drawing.Point(656, 380);
+            this.btnDetect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDetect.Name = "btnDetect";
+            this.btnDetect.Size = new System.Drawing.Size(105, 37);
+            this.btnDetect.TabIndex = 3;
+            this.btnDetect.Text = "Detect";
+            this.btnDetect.UseVisualStyleBackColor = true;
+            this.btnDetect.Click += new System.EventHandler(this.btnDetect_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 732);
+            this.ClientSize = new System.Drawing.Size(765, 476);
             this.Controls.Add(this.btnDetect);
             this.Controls.Add(this.pic);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnOpen);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "ObjectDetection";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yoloItemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic)).EndInit();
             this.ResumeLayout(false);
 
         }

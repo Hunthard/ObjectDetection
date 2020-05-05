@@ -34,7 +34,7 @@ namespace ObjectDetection
 
         private void btnDetect_Click(object sender, EventArgs e)
         {
-            var configurationDetector = new ConfigurationDetector();
+            var configurationDetector = new YoloConfigurationDetector();
             var config = configurationDetector.Detect();
 
             using (var yoloWrapper = new YoloWrapper(config))
