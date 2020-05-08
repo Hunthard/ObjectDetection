@@ -1,5 +1,8 @@
 ﻿using Alturos.Yolo;
 using Alturos.Yolo.Model;
+using AForge;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,13 +24,16 @@ namespace ObjectDetection
             InitializeComponent();
         }
 
+        public static Bitmap bitmapImage;
+
         private void btnOpen_Click(object sender, EventArgs e)
         {
             using(OpenFileDialog ofd = new OpenFileDialog() { Filter = "PNG|*.png|JPEG|*.jpeg"})
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    pic.Image = Image.FromFile(ofd.FileName);
+                    pic.Image = System.Drawing.Image.FromFile(ofd.FileName);
+                    bitmapImage = new Bitmap(pic.Image);
                 }
             }
         }
@@ -46,12 +52,6 @@ namespace ObjectDetection
                     yoloItemBindingSource.DataSource = items;
                     AddDetailsToPictureBox(pic, items.ToList());
                 }
-                //items[0].Type -> "Person, Car, ..."
-                //items[0].Confidence -> 0.0 (low) -> 1.0 (high)
-                //items[0].X -> bounding box
-                //items[0].Y -> bounding box
-                //items[0].Width -> bounding box
-                //items[0].Height -> bounding box
             }
         }
 
@@ -73,12 +73,35 @@ namespace ObjectDetection
                 var rect = new Rectangle(x, y, width, height);
                 var pen = new Pen(Color.LightCoral, 3);
 
-                var point = new Point(x, y);
+                var point = new System.Drawing.Point(x, y);
 
                 graphics.DrawRectangle(pen, rect);
                 graphics.DrawString(item.Type, font, brush, point);
             }
             pic.Image = img;
+        }
+
+        private void gaussianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmapImage = new Bitmap(pic.Image);
+            GaussianBlur filter = new GaussianBlur(4, 11);
+            filter.ApplyInPlace(bitmapImage);
+            pic.Image = bitmapImage;
+        }
+
+        private void noiseFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmapImage = new Bitmap(pic.Image);
+            GaussianSharpen filter = new GaussianSharpen(4, 11);
+            filter.ApplyInPlace(bitmapImage);
+            pic.Image = bitmapImage;
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bitmapImage = new Bitmap(pic.Image);
+            Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
+            pic.Image = AForge.Imaging.Image.Clone(filter.Apply(bitmapImage), PixelFormat.Format32bppArgb);
         }
     }
 }
