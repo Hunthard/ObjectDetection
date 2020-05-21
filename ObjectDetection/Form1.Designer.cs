@@ -41,12 +41,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.detectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.procToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gaussianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noiseFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.greyscaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.detectToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yoloItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic)).BeginInit();
@@ -157,6 +157,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
+            this.detectToolStripMenuItem1,
             this.procToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -167,8 +168,7 @@
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.detectToolStripMenuItem});
+            this.openToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.menuToolStripMenuItem.Text = "File";
@@ -176,16 +176,9 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // detectToolStripMenuItem
-            // 
-            this.detectToolStripMenuItem.Name = "detectToolStripMenuItem";
-            this.detectToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
-            this.detectToolStripMenuItem.Text = "Detect";
-            this.detectToolStripMenuItem.Click += new System.EventHandler(this.btnDetect_Click);
             // 
             // procToolStripMenuItem
             // 
@@ -200,21 +193,21 @@
             // gaussianToolStripMenuItem
             // 
             this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
-            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gaussianToolStripMenuItem.Text = "Gaussian Blur";
             this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.gaussianToolStripMenuItem_Click);
             // 
             // noiseFilterToolStripMenuItem
             // 
             this.noiseFilterToolStripMenuItem.Name = "noiseFilterToolStripMenuItem";
-            this.noiseFilterToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.noiseFilterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.noiseFilterToolStripMenuItem.Text = "Noise filter";
             this.noiseFilterToolStripMenuItem.Click += new System.EventHandler(this.noiseFilterToolStripMenuItem_Click);
             // 
             // greyscaleToolStripMenuItem
             // 
             this.greyscaleToolStripMenuItem.Name = "greyscaleToolStripMenuItem";
-            this.greyscaleToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.greyscaleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.greyscaleToolStripMenuItem.Text = "Grayscale";
             this.greyscaleToolStripMenuItem.Click += new System.EventHandler(this.grayscaleToolStripMenuItem_Click);
             // 
@@ -237,6 +230,13 @@
             this.splitContainer1.Size = new System.Drawing.Size(864, 457);
             this.splitContainer1.SplitterDistance = 450;
             this.splitContainer1.TabIndex = 5;
+            // 
+            // detectToolStripMenuItem1
+            // 
+            this.detectToolStripMenuItem1.Name = "detectToolStripMenuItem1";
+            this.detectToolStripMenuItem1.Size = new System.Drawing.Size(53, 20);
+            this.detectToolStripMenuItem1.Text = "Detect";
+            this.detectToolStripMenuItem1.Click += new System.EventHandler(this.btnDetect_Click);
             // 
             // Form1
             // 
@@ -276,12 +276,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem detectToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ToolStripMenuItem procToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem noiseFilterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem greyscaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detectToolStripMenuItem1;
     }
 }
 

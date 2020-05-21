@@ -26,9 +26,9 @@ namespace ObjectDetection
 
         public static Bitmap bitmapImage;
 
-        private void btnOpen_Click(object sender, EventArgs e)
+        private void OpenFile()
         {
-            using(OpenFileDialog ofd = new OpenFileDialog() { Filter = "PNG|*.png|JPEG|*.jpeg"})
+            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "PNG|*.png|JPEG|*.jpeg"})
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
@@ -43,14 +43,14 @@ namespace ObjectDetection
             }
         }
 
-        private void btnDetect_Click(object sender, EventArgs e)
+        private void DetectObjects()
         {
             var configurationDetector = new YoloConfigurationDetector();
             var config = configurationDetector.Detect();
 
             using (var yoloWrapper = new YoloWrapper(config))
             {
-                using(MemoryStream ms = new MemoryStream())
+                using (MemoryStream ms = new MemoryStream())
                 {
                     pic.Image.Save(ms, ImageFormat.Png);
                     var items = yoloWrapper.Detect(ms.ToArray());
@@ -86,7 +86,7 @@ namespace ObjectDetection
             pic.Image = img;
         }
 
-        private void gaussianToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GaussianSharpenProcessing()
         {
             bitmapImage = new Bitmap(pic.Image);
             GaussianBlur filter = new GaussianBlur(4, 11);
@@ -94,7 +94,7 @@ namespace ObjectDetection
             pic.Image = bitmapImage;
         }
 
-        private void noiseFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NoiseFilterProcessing()
         {
             bitmapImage = new Bitmap(pic.Image);
             GaussianSharpen filter = new GaussianSharpen(4, 11);
@@ -102,11 +102,36 @@ namespace ObjectDetection
             pic.Image = bitmapImage;
         }
 
-        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void GrayscaleFilterProcessing()
         {
             bitmapImage = new Bitmap(pic.Image);
             Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
             pic.Image = AForge.Imaging.Image.Clone(filter.Apply(bitmapImage), PixelFormat.Format32bppArgb);
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void btnDetect_Click(object sender, EventArgs e)
+        {
+            DetectObjects();
+        }
+
+        private void gaussianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GaussianSharpenProcessing();
+        }
+
+        private void noiseFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NoiseFilterProcessing();
+        }
+
+        private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GrayscaleFilterProcessing();
         }
     }
 }
