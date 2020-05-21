@@ -36,6 +36,11 @@ namespace ObjectDetection
                     bitmapImage = new Bitmap(pic.Image);
                 }
             }
+
+            if (yoloItemBindingSource.DataSource != null)
+            {
+                yoloItemBindingSource.DataSource = null;
+            }
         }
 
         private void btnDetect_Click(object sender, EventArgs e)
