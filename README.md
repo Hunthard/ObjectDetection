@@ -2,7 +2,7 @@
 
 ## Alturos.Yolo
 
-[Repositories](https://github.com/AlturosDestinations/Alturos.Yolo)
+[Repository](https://github.com/AlturosDestinations/Alturos.Yolo)
 
 ## AForge.NET
 
