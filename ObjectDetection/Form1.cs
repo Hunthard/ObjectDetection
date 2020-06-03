@@ -26,7 +26,7 @@ namespace ObjectDetection
 
         public static Bitmap bitmapImage;
 
-        private void OpenFile()
+        public void OpenFile()
         {
             using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "PNG|*.png|JPEG|*.jpeg"})
             {
@@ -88,23 +88,18 @@ namespace ObjectDetection
 
         private void GaussianSharpenProcessing()
         {
-            bitmapImage = new Bitmap(pic.Image);
             GaussianBlur filter = new GaussianBlur(4, 11);
-            filter.ApplyInPlace(bitmapImage);
-            pic.Image = bitmapImage;
+            pic.Image = AForge.Imaging.Image.Clone(filter.Apply(bitmapImage));
         }
 
         private void NoiseFilterProcessing()
         {
-            bitmapImage = new Bitmap(pic.Image);
             GaussianSharpen filter = new GaussianSharpen(4, 11);
-            filter.ApplyInPlace(bitmapImage);
-            pic.Image = bitmapImage;
+            pic.Image = AForge.Imaging.Image.Clone(filter.Apply(bitmapImage));
         }
 
         private void GrayscaleFilterProcessing()
         {
-            bitmapImage = new Bitmap(pic.Image);
             Grayscale filter = new Grayscale(0.2125, 0.7154, 0.0721);
             pic.Image = AForge.Imaging.Image.Clone(filter.Apply(bitmapImage), PixelFormat.Format32bppArgb);
         }
@@ -116,22 +111,34 @@ namespace ObjectDetection
 
         private void btnDetect_Click(object sender, EventArgs e)
         {
-            DetectObjects();
+            if (bitmapImage != null)
+            {
+                DetectObjects();
+            }
         }
 
         private void gaussianToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GaussianSharpenProcessing();
+            if (bitmapImage != null)
+            {
+                GaussianSharpenProcessing();
+            }
         }
 
         private void noiseFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NoiseFilterProcessing();
+            if (bitmapImage != null)
+            {
+                NoiseFilterProcessing();
+            }
         }
 
         private void grayscaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GrayscaleFilterProcessing();
+            if (bitmapImage != null)
+            {
+                GrayscaleFilterProcessing();
+            }
         }
     }
 }
